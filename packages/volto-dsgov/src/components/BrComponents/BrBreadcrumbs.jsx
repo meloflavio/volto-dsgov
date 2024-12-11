@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const BrBreadcrumbs = (props) => {
   const [Component, setComponent] = useState(null);
@@ -6,14 +6,14 @@ const BrBreadcrumbs = (props) => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       import('@govbr-ds/react-components').then((module) => {
-        setComponent( () => module.BrBreadcrumbs);
+        setComponent(() => module.BrBreadcrumbs);
       });
     }
   }, []);
 
   if (!Component) return <>Loading...</>;
 
-  return <Component {...props}  />;
-}
+  return <Component {...props} />;
+};
 
 export default BrBreadcrumbs;

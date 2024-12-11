@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const BrAvatar = (props) => {
   const [Component, setComponent] = useState(null);
@@ -13,7 +13,7 @@ const BrAvatar = (props) => {
 
   if (!Component) return <>Loading...</>;
 
-  return <Component {...props}  />;
-}
+  return <Component {...props} />;
+};
 
 export default BrAvatar;

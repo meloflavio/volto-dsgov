@@ -13,10 +13,9 @@ export default function useHeader({ pathname }) {
   let secondText = '';
   let thirdText = '';
 
-    firstText = 'Universidade Federal do Tocantins';
-    secondText = '';
-    thirdText = '';
-
+  firstText = 'Universidade Federal do Tocantins';
+  secondText = '';
+  thirdText = '';
 
   React.useEffect(() => {
     const { settings } = config;
@@ -24,8 +23,7 @@ export default function useHeader({ pathname }) {
     if (!hasApiExpander('navigation', getBaseUrl(pathname))) {
       dispatch(getNavigation(getBaseUrl(pathname), settings.navDepth));
     }
-
-  }, [pathname, token,  dispatch]);
+  }, [pathname, token, dispatch]);
 
   return {
     firstText,

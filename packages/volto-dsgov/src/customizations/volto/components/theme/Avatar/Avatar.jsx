@@ -21,7 +21,7 @@ const Avatar = ({ src, title, text, size, color, className }) => {
   const userId = token ? jwtDecode(token).sub : '';
   const isLogged = userId && 'fullname' in user;
   const dispatch = useDispatch();
-  let initial = getInitials(title,1)
+  let initial = getInitials(title, 1);
   const pushToLogout = () => dispatch(logout());
 
   useEffect(() => {
@@ -30,28 +30,26 @@ const Avatar = ({ src, title, text, size, color, className }) => {
     }
   }, [dispatch, isLogged, userId]);
 
-
-  const getAvailableName = () => title || user?.fullname || user?.username
-  const getFirstName = (name) => name?.split(' ')[0] ?? ''
-
+  const getAvailableName = () => title || user?.fullname || user?.username;
+  const getFirstName = (name) => name?.split(' ')[0] ?? '';
 
   const trigger = () => {
     const firstName = getFirstName(getAvailableName());
-    if (initial === '' && firstName?.length > 0 ) initial = getInitials(firstName ,1)
+    if (initial === '' && firstName?.length > 0)
+      initial = getInitials(firstName, 1);
     return (
-      <div className="br-sign-in" >
-        { src &&  <BrAvatar
-          src={src}
-          type="image"
-          size={size}
-          className={className}
-        /> }
-        {!src && <BrAvatar
-          src={src ?? initial}
-          type="letter"
-          size={size}
-          className={className}
-        /> }
+      <div className="br-sign-in">
+        {src && (
+          <BrAvatar src={src} type="image" size={size} className={className} />
+        )}
+        {!src && (
+          <BrAvatar
+            src={src ?? initial}
+            type="letter"
+            size={size}
+            className={className}
+          />
+        )}
 
         <span className="ml-2 text-gray-80 text-weight-regular">
           Olá, <span className="text-weight-semi-bold">{firstName}</span>
@@ -64,7 +62,11 @@ const Avatar = ({ src, title, text, size, color, className }) => {
 
   return (
     <div>
-      <Dropdown trigger={trigger()} onOpen={() => setSelected(true)} onClose={() => setSelected(false)}>
+      <Dropdown
+        trigger={trigger()}
+        onOpen={() => setSelected(true)}
+        onClose={() => setSelected(false)}
+      >
         <Dropdown.Menu className="br-list" style={{ minWidth: '200px' }}>
           <Dropdown.Header
             content={
@@ -76,7 +78,11 @@ const Avatar = ({ src, title, text, size, color, className }) => {
             }
           />
 
-          <Dropdown.Item className="br-item" onClick={pushToLogout} text={'Sair'} />
+          <Dropdown.Item
+            className="br-item"
+            onClick={pushToLogout}
+            text={'Sair'}
+          />
         </Dropdown.Menu>
       </Dropdown>
     </div>
@@ -94,7 +100,7 @@ Avatar.propTypes = {
 
 Avatar.defaultProps = {
   src: null,
-  title: "",
+  title: '',
   text: null,
   size: null,
   color: defaultColor,

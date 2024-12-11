@@ -1,7 +1,6 @@
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 export default function useSearch({ pathname }) {
-
   const history = useHistory();
 
   const onSearch = (terms) => {
@@ -12,6 +11,6 @@ export default function useSearch({ pathname }) {
   };
 
   return {
-    onSearch
+    onSearch,
   };
 }

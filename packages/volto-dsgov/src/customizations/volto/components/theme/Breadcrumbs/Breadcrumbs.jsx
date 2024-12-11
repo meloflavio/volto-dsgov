@@ -7,9 +7,8 @@ import { BrBreadcrumbs } from '../../../../../components/BrComponents';
 
 import { getBreadcrumbs } from '@plone/volto/actions';
 import { getBaseUrl, hasApiExpander } from '@plone/volto/helpers';
-import useGovBrComponents from '../../../../../hooks/useGovBrComponents';
 import useNavigation from '../../../../../hooks/useNavigation';
-import './breadcrumbs.less'
+import './breadcrumbs.less';
 const messages = defineMessages({
   home: {
     id: 'Home',
@@ -32,9 +31,8 @@ const BreadcrumbsComponent = ({ pathname }) => {
   const initialCrumb = {
     isHome: true,
     label: intl.formatMessage(messages.home),
-    onClick: () => redirectToPath(root || '/')
-  }
-
+    onClick: () => redirectToPath(root || '/'),
+  };
 
   useEffect(() => {
     if (!hasApiExpander('breadcrumbs', getBaseUrl(pathname))) {
@@ -44,15 +42,17 @@ const BreadcrumbsComponent = ({ pathname }) => {
 
   return (
     <Container>
-
-    <BrBreadcrumbs crumbs={[ initialCrumb, ...items.map((item, index) => ( {
+      <BrBreadcrumbs
+        crumbs={[
+          initialCrumb,
+          ...items.map((item, index) => ({
             href: item.url,
             label: item.title,
             active: index === items.length - 1,
-      }
-        )) ]} />
+          })),
+        ]}
+      />
     </Container>
-
   );
 };
 

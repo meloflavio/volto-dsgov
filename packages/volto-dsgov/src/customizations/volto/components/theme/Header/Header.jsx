@@ -10,51 +10,48 @@ import useSearch from '../../../../../hooks/useSearch';
 import { BrMenu, BrHeader } from '../../../../../components/BrComponents';
 
 const Header = ({ pathname }) => {
-
   const token = useSelector((state) => state.userSession.token, shallowEqual);
   const items = useSelector((state) => state.navigation.items, shallowEqual);
-  const lang = useSelector((state) => state.intl.locale);
-  const { firstText, secondText} =
-    useHeader({ pathname });
+  // const lang = useSelector((state) => state.intl.locale);
+  const { firstText, secondText } = useHeader({ pathname });
 
   const { redirectToPath } = useNavigation();
-  const { onSearch } = useSearch({pathname});
+  const { onSearch } = useSearch({ pathname });
 
   return (
     <div>
-
       <BrHeader
         features={[
           {
             icon: 'chart-bar',
             label: 'Funcionalidade 1',
-            onClick: function Dc(){}
+            onClick: function Dc() {},
           },
           {
             icon: 'headset',
             label: 'Funcionalidade 2',
-            onClick: function Dc(){}
+            onClick: function Dc() {},
           },
           {
             icon: 'comment',
             label: 'Funcionalidade 3',
-            onClick: function Dc(){}
+            onClick: function Dc() {},
           },
           {
             icon: 'adjust',
             label: 'Funcionalidade 4',
-            onClick: function Dc(){}
-          }
+            onClick: function Dc() {},
+          },
         ]}
         menuId="main-navigation"
         onClickLogin={() => redirectToPath('/login')}
         showLoginButton={true}
         loggedIn={token}
-        quickAccessLinks={items.map(item =>  ({
+        quickAccessLinks={items.map((item) => ({
           label: item.title,
-          onClick: () => redirectToPath(item.url)
+          onClick: () => redirectToPath(item.url),
         }))}
-        avatar={<Avatar  /> }
+        avatar={<Avatar />}
         showMenuButton
         showSearchBar
         onSearch={onSearch}
@@ -70,7 +67,7 @@ const Header = ({ pathname }) => {
             divider: true,
             icon: 'home',
             label: 'Página Inicial',
-            onClick: function Dc(){}
+            onClick: function Dc() {},
           },
           {
             icon: 'calendar',
@@ -79,7 +76,7 @@ const Header = ({ pathname }) => {
               {
                 icon: 'moon',
                 label: 'Sub Folder 1',
-                onClick: function Dc(){}
+                onClick: function Dc() {},
               },
               {
                 icon: 'sun',
@@ -88,62 +85,66 @@ const Header = ({ pathname }) => {
                   {
                     icon: 'wifi',
                     label: 'Sub Sub Folder 1',
-                    onClick: function Dc(){}
-                  }
-                ]
-              }
-            ]
-          }
+                    onClick: function Dc() {},
+                  },
+                ],
+              },
+            ],
+          },
         ]}
         externalLinks={[
           {
             label: 'Link externo 01',
-            link: 'https://google.com/'
+            link: 'https://google.com/',
           },
           {
             label: 'Link externo 02',
-            link: 'https://google.com/'
-          }
+            link: 'https://google.com/',
+          },
         ]}
         id="main-navigation"
-        info={<div className="text-center text-down-01">Todo o conteúdo deste site está publicado sob a licença{' '}<strong>Creative Commons Atribuição-SemDerivações 3.0</strong></div>}
+        info={
+          <div className="text-center text-down-01">
+            Todo o conteúdo deste site está publicado sob a licença{' '}
+            <strong>Creative Commons Atribuição-SemDerivações 3.0</strong>
+          </div>
+        }
         logos={[
           {
             alt: 'Logo 01',
-            src: 'https://www.gov.br/ds/assets/img/govbr-logo.png'
+            src: 'https://www.gov.br/ds/assets/img/govbr-logo.png',
           },
           {
             alt: 'Logo 02',
-            src: 'https://www.gov.br/ds/assets/img/govbr-logo.png'
-          }
+            src: 'https://www.gov.br/ds/assets/img/govbr-logo.png',
+          },
         ]}
         socialNetworks={[
           {
             icon: 'fab fa-facebook-f',
             link: '#',
-            name: 'Facebook'
+            name: 'Facebook',
           },
           {
             icon: 'fab fa-twitter',
             link: '#',
-            name: 'Twitter'
+            name: 'Twitter',
           },
           {
             icon: 'fab fa-linkedin-in',
             link: '#',
-            name: 'Linkedin'
+            name: 'Linkedin',
           },
           {
             icon: 'fab fa-whatsapp',
             link: '#',
-            name: 'Whatsapp'
-          }
+            name: 'Whatsapp',
+          },
         ]}
         systemLogoUrl="https://www.gov.br/ds/assets/img/govbr-logo.png"
         systemName="Nome da aplicação"
       />
     </div>
-
   );
 };
 

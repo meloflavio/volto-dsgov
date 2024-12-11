@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function useGovBrComponents() {
   const defaultState = {
@@ -8,9 +8,8 @@ export default function useGovBrComponents() {
     BrHeader: null,
     BrMenu: null,
     BrFooter: null,
-  }
+  };
   const [components, setComponents] = useState(defaultState);
-
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

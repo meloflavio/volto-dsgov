@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const BrMenu = (props) => {
   const [Component, setComponent] = useState(null);
@@ -6,14 +6,14 @@ const BrMenu = (props) => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       import('@govbr-ds/react-components').then((module) => {
-        setComponent(() =>  module.BrMenu);
+        setComponent(() => module.BrMenu);
       });
     }
   }, []);
 
   if (!Component) return <>Loading...</>;
 
-  return <Component {...props}  />;
-}
+  return <Component {...props} />;
+};
 
 export default BrMenu;
