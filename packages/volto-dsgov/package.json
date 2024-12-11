@@ -1,6 +1,6 @@
 {
   "name": "@meloflavio/volto-dsgov",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.2",
   "description": "Add DSGov and React WebComponents in theme for Plone Volto",
   "main": "src/index.js",
   "license": "MIT",
